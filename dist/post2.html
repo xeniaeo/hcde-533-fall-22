@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Xenia Lin</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Xenia Lin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/a2/laser-cut-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>A2: Parametric Modelling with Grasshopper!</h1>
+                            <h2 class="subheading">Parametric modeling</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Xenia</a>
+                                on October 18, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p class="caption text-muted">Photo by <a href="https://unsplash.com/@tool_inc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tool., Inc</a> on <a href="https://unsplash.com/s/photos/laser-cutting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+                        <p>I'll update the final result here after I finish the laser cutting part!</p>
+                        <a href="#!"><img class="img-fluid" src="" alt="final result" /></a>
+                        <h2 class="section-heading">Diving into Grasshopper</h2>
+                        <p>Since I have some experiences of using 3D modeling softwares like blender, and game engines like Unity, I find the concepts of using Grasshopper easier to understand. Having prior understandings of basic 3D concepts like geometry, faces/edges/vertices, transform, vector direction, unitize and more helped me understand the Grasshopper logic quicker.</p>
+                        <p>For this week, I've been really busy with work, so my goal this week is to just finish the demo video uploaded by the TA and quickly get the idea of how Grasshopper works. I'll try to explain the process below.</p>
+                        <h2 class="section-heading">The Process</h2>
+                        <p>*Note: The screenshots may not be the easiest way to read the process. You can refer to the Grasshopper file below for the complete program and notes.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/grasshopper-01.JPG" alt="..." /></a>
+                        <span class="caption text-muted">Step 1 to step 3-1</span>
+                        <p>Step 1: Determine the input. As seen here, the input parameters are the center of the polygon, polygon radius, polygon sides, width and depth of the slots.</p>
+                        <p>Step 2: Create a polygon and deconstruct it into faces/edges/vertices with "Deconstruct Brep" component. (We only need the deconstructed edges.)</p>
+                        <p>Step 3: Use the midpoint of each of the polygon edges to create one side of the rectangle (its width) that'll serve as our slots.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/grasshopper-02.JPG" alt="..." /></a>
+                        <span class="caption text-muted">Step 3-1 to step 3-2</span>
+                        <p>Step 3-1: Use the "Curve Middle" component to find the midpoints of the deconstructed polygon edges.</p>
+                        <p>Step 3-2: "Scale" the geometry (i.e. the deconstructed polygon edges) from the center (i.e. midpoint of each polygon edge) by the factor (i.e. width of slots divided by the length of the polygon edge). Therefore the length of the scaled curve is equal to the width of the slots (set and adjustable in the input area).</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/grasshopper-03.JPG" alt="..." /></a>
+                        <span class="caption text-muted">Step 4 to step 6</span>
+                        <p>Step 4: "Extrude" the geometry (the scaled curve with its length set to the width of the slots) with the specified direciton and length. The input for the "Extrude" components are "Base" and "Direction". The Base is the scaled curve, and the Direction is a vector that has been set with a length that equals the depth of the slots + one unit (in order for us to move the rectangles outwards by one unit and do the trim later), and the direction from the midpoint of the polygon edges to the center point of the polygon. This allows us to get the rectangle slots like below.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/gh-before-move.JPG" alt="..." /></a>
+                        <p>Step 5: "Move" the geometry (rectangle slots) by the motion in order to have an overlap between the rectangle slots and the polygon to do the trim. The Motion input is defined by the "Vector 2pt" component, with a direction from the center point of the polygon to the midpoint of each of the polygon edge, and the vector length has been unitized so we are moving the geometry by one unit. See below for the result after moving the slots.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/gh-after-move.JPG" alt="..." /></a>
+                        <p>Step 6: Trim and join! Remember to "Trim with Regions" and not "Trim with Region".</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/gh-trim-join.JPG" alt="..." /></a>
+                        <h2 class="section-heading">Final Grasshopper Program</h2>
+                        <p>Here is a screen capture of my final Grasshopper program. You can find my Grasshopper and Rhino file below.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/final-grasshopper.JPG" alt="..." /></a>
+                        <p>With the Grasshopper program, I can easily change the parameters and quickly create different shapes with editable slot sizes in Rhino.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a2/shapes.JPG" alt="..." /></a>
+                        <h2 class="section-heading">Attachment</h2>
+                        <p>The Rhino source file can be found <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a2/a2.3dm">here</a>.</p>
+                        <p>And the Grasshopper file <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a2/a2.gh">here</a>.</p>
+                        <h2 class="section-heading">Acknowledgements</h2>
+                        <p>Thank you to the TA for the helpful comments and the demo video, they helped a lot!</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Xenia Lin 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
