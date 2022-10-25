@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Xenia Lin</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Xenia Lin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/a3/3d-print-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>A3: Getting started with 3D printing!</h1>
+                            <h2 class="subheading">3D Printing</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Xenia</a>
+                                on October 24, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p class="caption text-muted">Photo by <a href="https://unsplash.com/@kadircelep?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kadir Celep</a> on <a href="https://unsplash.com/s/photos/3d-printing?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+                        <h2 class="section-heading">Assembling the 3D Printer</h2>
+                        <p>I bought a Creality Ender-3 Pro 3D Printer (0.4 mm nozzle diameter / 1.75 mm filament) with my roommate Joyce, and we worked together to assemble it by following an <a href="https://www.youtube.com/watch?v=ibsOYzXduYc&t=737s">YouTube tutorial</a> step by step. The entire process took us around 2 hours.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/assemble-0.JPG" alt="..." /></a>
+                        <p>The picture below are some of the major steps captured during the assembling process. We carefully put on different parts piece by piece, making sure that all the screws and nuts were not loose and that some plastic parts were not tightened too much (which might break the plastic parts). </p>
+                        <p>It is also very important to make sure that the voltage is set to 115v as we are in the US.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/assemble-steps.png" alt="..." /></a>
+                        <p>For the build plate level, we put the z-axis switch all the way at the bottom (as shown below), and it seemed to work alright. Later on we tried to adjust it while we were leveling the bed, but still it seemed best to keep it at the bottom.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/z-axis-switch.JPG" alt="..." /></a>
+                        <p>Even though we were quite confused and had to pause/replay the tutorial multiple times, we were able to get the 3D printer to run on our first try! There were no major issue during our assembling process.</p>
+                        <p>However, putting in the filament was trickier than it seemed to be in the tutorial video. We didn't realize we need to press and hold the clamp to be able to feed the filament in (despite how obvious it now seems). Also, the hole to the tube was quite small, so we had to remove the nut first, put the filament in and then put the nut back, while making sure that the nut position properly without blocking the movement of the filament.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/filament.JPG" alt="..." /></a>
+                        
+                        <h2 class="section-heading">Bed Leveling</h2>
+                        <p>To prepare for the print, I first conducted the bed leveling protocol by following the instructions from <a href="https://www.thingiverse.com/thing:3235018">Filament Friday</a> and this <a href="https://www.youtube.com/watch?v=_EfWVUJjBdA">video</a>. Bed leveling is critical to the adhesion and the success of the 3D prints.</p>
+                        <p>There are two gcode files required. The first is the <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a3/bed-level-v4/CHEP_M25_bed_level.gcode">CHEP_M25_bed_level.gcode</a> file for adjusting the corners, by sliding a piece of paper underneath and adjust the bed until the paper hardly moves.</p>
+                        <p class="caption text-muted">*Ender 3 Bed Level by Elproducts is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons - Attribution</a> license.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/bed-level-1.JPG" alt="..." /></a>
+                        <p>The second is <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a3/bed-level-v4/CHEP_bed_level_print.gcode">CHEP_bed_level_print.gcode</a> to do live adjustment on the bed level knobs. By rubbing the printed filament on the bed and make sure that they are not moving, we can make sure that the bed is leveled.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/bed-level-2.JPG" alt="..." /></a>
+                        <p>My bed leveling attempts weren't always successful. And my key takeaways are:</p> 
+                        <p>(1) When checking the four corners, make sure that there are enough resistance when sliding in/out the paper between the extruder and the bed. If the filament can't be fully attached to the bed, try to go even tighter at the first step.</p>
+                        <p>(2) For step two, always make sure that all of the squares, from the largest outside to the smallest one in the middle, can be attached to the bed and not easily rubbed off. Otherwise, things like below may happen...</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/bed-level-issue.png" alt="..." /></a>
+                        <span class="caption text-muted">I thought the bed was leveled and the filament could be adhered to the bed as I only looked at the two outer squares...but the filament actually could not be adhered properly in the middle (where I printed my entire model)...</span>
+                        
+                        <h2 class="section-heading">Modeling in Rhino & Slicing in Cura</h2>
+                        <p>I modeled the cubes/tubes/cylinders in Rhino first, exported them into .stl files using the below settings (<a href="https://www.fictiv.com/articles/preparing-rhino-files-for-3d-printing">reference</a>). </p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/rhino-model-export.JPG" alt="..." /></a>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/rhino-model-export-2.JPG" alt="..." /></a>
+                        <p>For my nested object, I imported a UW logo in Adobe Illustrator, extracted its outline and then imported the AI file into Rhino. I then extruded the shape to make it a 3D model.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/nested-uw.png" alt="..." /></a>
+                        <span class="caption text-muted">From AI to Rhino to Cura</span>
+                        
+                        <h2 class="section-heading">Let's Print!</h2>
+                        <p>So finally I got to the printing part. Here is a table documenting the prints, their printing duration and their sizes to check if they fall within the tolerance.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/table.JPG" alt="..." /></a>
+                        <p>All of the prints!</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/all-prints-1.JPG" alt="..." /></a>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/all-prints-2.png" alt="..." /></a>
+                        
+                        <h2 class="section-heading">Notes</h2>
+                        <p>Some of my notes and lessons learned...</p>
+                        <p>If there are adhesion issues, try the followings: (1) leveling the bed, reduce the distance between the nozzle and the bed (2) increase the bed temperature by 5 degrees each increment (3) increase the extruder temperature (4) use BRIM (5) increase BRIM width (6) clean the nozzle as it may be clogged.</p>
+                        <p>Even if you feel confident that your prints are gonna come out alright and you wanna walk away from the printer, wait until it prints for a little to see if it actually succeeds before you walk away. Otherwise you might end up like this...I didn't know the nozzle was clogged and the filament did not come out, it kept printing for 20 minutes...</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a3/disaster-1.JPG" alt="..." /></a>
+                        
+                        <h2 class="section-heading">Attachment</h2>
+                        <p>The Rhino source file, .stl files and gcode files can be found <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a3/print-files">here</a>.</p>
+                        
+                        <h2 class="section-heading">Acknowledgements</h2>
+                        <p>Thanks to Joyce who worked with me to put the 3D printer together! It would certainly be more difficult to assemble without help. Also need to thank her for all the support and help during the printing process! And a special thanks to my roommates for enduring the noise caused by the printer...</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/xenia_lin">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/xeniaeo">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Xenia Lin 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
