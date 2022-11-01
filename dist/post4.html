@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Xenia Lin</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Xenia Lin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/a4/01_othermill.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>A4: Subtractive Manufacturing!</h1>
+                            <h2 class="subheading">CNC Milling a F1-inspired Box!</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Xenia</a>
+                                on November 1, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">Inspiration</h2>
+                        <p>I've been a huge Formula One fan for 12 years, and the driver I supported throughout all this time is retiring at the end of this season. Therefore, I decided to make a box as a tribute to him. This box has an F1 car engraved on the both sides, with his car number 5 on them. I have his name engraved on the front, and the dates of his first and (supposedly) last F1 race engraved on the back. Here is how it turned out! The five pieces form the box tightly, and even though there are still a few things to improve on, I'm fairly happy with the result!</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/final.gif" alt="..." /></a>
+                        <h2 class="section-heading">The Process</h2>
+                        <p>The workflow is basically Adobe Illustrator -> Rhino -> KiCAD -> Bantam -> Milling with the Othermill!</p>
+                        <p>I had the idea in my head, so I started to look for a 2022 F1 car outline that is clean and good for engraving on a 10cm x 7cm FR1 board. I found the source from <a href="https://www.printables.com/model/125421-2022-f1-car-outline">here</a> with <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">CC0</a> license.</p>
+                        <p>With Adobe Illustrator, I extrated the outline and added some details to it, including a number 5 on the side of the car representing my favorite driver. To engrave the texts, I searched to see what kind of fonts are best for milling. As the serif fonts are typically narrower and may be too small to mill, the sans-serif fonts are recommended to use for milling. I chose to go with Century Gothic Bold, but read that Arial and Verdana are also common options.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/02_ai.JPG" alt="..." /></a>
+                        <p>I then imported the AI file into Rhino to create the dogbones. What I did was nothing fancy - the same old, easy Trim & Join! Although I would really like to find some time to create them in Grasshopper and save me all the pain of adjusting them later.</p>
+                        <p>In Rhino, I created the shape of each connecting parts using rectangles (10mm x 3mm, with the actual width being 2mm and that extra 1mm was used for trimming as I needed the overlap to trim) and circles (0.5mm radius) for the dogbones. You can see from the below picture that I created the basic shape of the connecting parts, and then used the basic shape to do Trim/Join with each pieces of the box.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/03_rhino-1.JPG" alt="..." /></a>
+                        <p>This is a sketch of the spec of my connecting parts. The extended parts that should fit into the slots of another pieces were set to 10mm * 95% in length, it turned out to be too loose and I had to shrink the slots to 10mm * 98% for them to fit tightly.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/05_spec.jpg" alt="..." /></a>
+                        <p>In Rhino, I separated the engraving parts, the cut parts, and the reference lines into three layers for better management. And then they were exported into .dxf files (in the Top view, with the Export Scheme being "2007 Lines") with the cutting and engraving curve separated into two files as well as with each board separated.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/04_rhino-2.JPG" alt="..." /></a>
+                        <p>Moving on to KiCAD. I imported the cutting curve onto the Edge.Cuts layer, and the engraving curve onto the User.Drawings layer. In Import > Graphics, I set the line width to 0.1mm for cuts, and 0.05mm for engravings (although later it turned out that the end mill I used was 1/32 inch, which was about 0.08mm).</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/06_kicad.JPG" alt="..." /></a>
+                        <p>Finally, I plotted them into .gbr files, and they were ready to go!</p>
+
+                        <h2 class="section-heading">Milling!</h2>
+                        <p>Using Bantam Tools, I previewed to see if the curves look correct before heading to the makerspace.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/07_bantam.JPG" alt="..." /></a>
+                        <p>Here are a simple step-by-step of using Bantam Tools to do CNC milling with the Othermill machine:</p>
+                        <p>1. Put on the 1/32" end mill. On Bantam, use Jog > Install Tool to let the end mill touch the bed to adjust for the z axis, and then use Jog > Re-home to adjust the x & y axis to 0.</p>
+                        <p>2. In Initial Setup, open the engraving file (Top) first and then the cutting file (Outline). Set the milling tools.</p>
+                        <p>3. In Material Setup, set the sizes of the FR1 board. And then in the material offset z, input the offset which is the total thickness of the sandwich (material layer + double-sided tape + sacrifical layer) minus the material thickness.</p>
+                        <p>4. In Plan Setup > Plan Offset, adjust X & Y slightly to make them less closer to the edge of the board.</p>
+                        <p>5. Tape the sandwich onto the bed, at the bottom left corner.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/08_mill-1.jpg" alt="..." /></a>
+                        <p>6. Click "Mill All" to start milling!</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/milling.gif" alt="..." /></a>
+                        <p>Keep an eye on it during the process, as it's possible that the sandwich loses its adherence to the bed and starts moving around... The tip to make it stick to the bed the entire time is to make sure you've removed all of the old/remaining tapes and put on new double-sided tape without any overlap (to make sure it sticks to the bed completely flat) and covering the entire surface.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/09_mill-2.jpg" alt="..." /></a>
+                        <span class="caption text-muted">The estimated time for this board was over 8 minutes</span>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/11_failed.jpg" alt="..." /></a>
+                        <span class="caption text-muted">It ended up not adhering to the bed and it was a failed attempt...</span>
+
+                        <h2 class="section-heading">It didn't fit for my first try...</h2>
+                        <p>It was really close, but it was still too loose for my first try. I adjusted the slots to reduce them from 10mm to 10mm * 98%, and with a little bit of chipping on some of them, the pieces fit tightly.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/10_loose.jpg" alt="..." /></a>
+                        <span class="caption text-muted">THIS WAS TOO LOOSE!</span>
+                        <p>Also, I forgot to take into the account the space for some of the connecting parts, and the parts that touched on three sides ended up not fitting together. I had to manually chop away the bottom parts which was honestly a low-tech not-so-quick fix.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/13_before-fix.jpg" alt="..." /></a>
+                        <span class="caption text-muted">On the bottom left is how it looks like after fixing, on the bottom right is how it looks like before fixing.</span>
+                        <p>Lesson-learnt: Test build the box in Rhino! Don't skip the step!</p>
+
+                        <h2 class="section-heading">But eventually it all worked out!</h2>
+                        <p>There are still things to improve. I'd like to see if I can switch to a smaller mill end next time to make the engravings look better, as some of the curves were actually overlapping each other. The slots didn't fit for my first try as I forgot to take into account the size of the mill end, it's tricky to get right but hopefully I can get it right next time.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a4/14_final.jpg" alt="..." /></a>
+
+                        <h2 class="section-heading">Notes</h2>
+                        <p>Since I used a more manual way of creating the connecting parts & the dogbones, this had led to some problems in Rhino and costed me quite some time to fix them.</p>
+                        <p>Mainly I was making sure that the curves are all in one closed curve, and not several open curves, as well as removing some overlapping curves.</p>
+
+                        <h2 class="section-heading">Attachment</h2>
+                        <p>The Adobe Illustrator file, Rhino source file, .dxl files and .gbr files can be found <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a4/model-files">here</a>.</p>
+                        
+                        <h2 class="section-heading">Acknowledgements</h2>
+                        <p>Thank you to Nadya and Jun-Chao the TA who demonstrated the milling process! Also thanks to Jalia who was immediately trying to mill a square after class, by watching her doing it I quickly understood the whole process, which was super helpful!</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/xenia_lin">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/xeniaeo">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Xenia Lin 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
