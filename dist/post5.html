@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Xenia Lin</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Xenia Lin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/a5/bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>A5: Getting Meshy! and Lamps!</h1>
+                            <h2 class="subheading">Creating a combined mesh in Rhino & Prepping for lamps</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Xenia</a>
+                                on November 7, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <span class="caption text-muted">Photo by <a href="https://unsplash.com/@thiagojapyassu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">thiago japyassu</a> on <a href="https://unsplash.com/s/photos/lamps?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
+                        <h2 class="section-heading">Part 1: Creating a combined STL model in Rhino</h2>
+                        <p>For the first part of this assignment, we need to modify the mesh of two STLs into one single printable STL. At first, I found a <a href="https://www.thingiverse.com/thing:2517867">Question Block Switch Cartridge Case</a> and a <a href="https://www.thingiverse.com/thing:603326">High-Res Super Mario</a> on Thingiverse. I tried to clean up the Super Mario model, but eventually I could not make it become a proper printable mesh. Its poly count was too high, and if I brought it down, it lost a lot of the details and simply looked weird.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-05.JPG" alt="..." /></a>
+                        <span class="caption text-muted">The mesh was too complicated and I couldn't quite fix it</span>
+                        <p>Therefore, I switched to use the <a href="https://www.thingiverse.com/thing:140097">Super Mario Mushroom 1up</a> model. The goal is to combine this model with the lid of the Question Block box. First, I used the MeshRepair command to check the mesh.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-06.JPG" alt="..." /></a>
+                        <p>And then I tried to see if Rhino can repait it. After running the command twice, here's what Rhino had come out.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-08.JPG" alt="..." /></a>
+                        <p>I then tried to see if I can further reduce the mesh, although it was already simple enough. Recuding it by 10% made its eyes look a bit deformed, so I opted to not reduce the mesh. Finally, I used MeshBooleanUnion to join the mushroom and the lid into one closed mesh.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-11.JPG" alt="..." /></a>
+                        <span class="caption text-muted">Joining the lid and the mushroom</span>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-12.JPG" alt="..." /></a>
+                        <p>Importing this STL file into Cura to check if it can be properly printed:</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a5/mesh-13.JPG" alt="..." /></a>
+                        <h2 class="section-heading">Part 2: Prepping for lamps</h2>
+                        
+                        <h2 class="section-heading">Attachment</h2>
+                        <p>The .stl files and Rhino files can be found <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a5/model-files">here</a>.</p>
+                        
+                        <h2 class="section-heading">Acknowledgements</h2>
+                        <p>Thank you to Jun-Chao the TA for recoding the helpful Rhino videos!</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/xenia_lin">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/xeniaeo">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Xenia Lin 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
