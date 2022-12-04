@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Xenia Lin</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Xenia Lin</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/a8/cut-board.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>A8: Final Project!</h1>
+                            <h2 class="subheading">A struggle with my 3D printer...and a chess set</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Xenia</a>
+                                on December 6, 2022
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">Final Result</h2>
+                        <a href="#!"><img class="img-fluid" src="" alt="..." /></a>
+                        <p>Long story short, it's a real struggle finishing this seemingly easy project.</p>
+                        <p>Techniques used: laser cutting, Rhino, 3D printing, press-fit, and incorporating stock parts.</p>
+
+                        <h2 class="section-heading">Designing in CAD</h2>
+                        <p>Here is a rendering of the chess box design I did in Rhino. The wood-textured part will be laser cut from basswood and the pink part will be 3D printed with PLA filament.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/chess-box-render.jpg" alt="..." /></a>
+                        <p>For the chess board, I designed the engraving in Adobe Illustrator. The theme of this chess board is inspired by Game of Thrones, so I modify <a href="https://www.kryshiggins.com/free-game-of-thrones-inspired-snowflake-patterns/">this GoT snowflake design</a> to be the chess board pattern, representing the 10 houses in the story.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/chess-board-design.JPG" alt="..." /></a>
+                        <p>The chess box and holder structure that need to be laser cut are imported into Illustrator from Rhino, as highlighted in red in the picture below.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/chess-box-laser.JPG" alt="..." /></a>
+                        <p>As much as I want to print this awesome <a href="https://www.thingiverse.com/thing:2568988">GoT chess pieces design</a>, unfortunately it's not feasible for this project. Printing all of the 32 chess pieces with this much detail will not be possible since I only have around 1 week of printing time. I considered scaling them down in exchange for faster printing time, however from my test print, the details of the model would be sacrificed too much as I could barely see the shape of the swords on the Iron Throne, and it would take lots of time to clean up all of the supports needed to print these pieces.</p>
+                        <p>Therefore, I chose to print this <a href="https://www.thingiverse.com/thing:470700">spiral chess set</a> as they can be printed without supports, and they are something that could not be manufactured by any other process other than 3D printing.</p>
+                        <p>I measured the size of the magnets I purchased (2.8 mm in height and 5.9 mm in diameter), and did a few test prints to finally determine that the hole underneath each chess piece to be 3.2 mm in height and 7.8 mm in diameter to best fit the magnets. I then modified the models of chess pieces in Rhino, scaling down the original models to be 64% considering the size of my chess board/box design and the printing time required.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/chess-piece-rhino.JPG" alt="..." /></a>
+
+                        <h2 class="section-heading">Laser cut the chess board and holder</h2>
+                        <p>To avoid waiting in the long line at the MILL (and laser cutter potentially not working), I took the laser cutter training and then did the laser cut parts in my office. The Epilog laser in the office has cameras on and it's easier to position the cut parts onto the materials.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/fancy-cutter.jpg" alt="..." /></a>
+                        <p>Here are the settings I used. According to the training instructor, even though the printer preset settings set the power to be 100%, it is better to reduce the power to 90% or lower to prolong the life of the laser cutter. By proportionally reducing the speed, we can get similar results.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/laser-cut-setting.png" alt="..." /></a>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/cut-board.jpg" alt="..." /></a>
+                        <p>However, engraving the board this way makes the basswood piece easy to break, which I didn't foresee.</p>
+
+                        <h2 class="section-heading">A real struggle this time with my 3D printer</h2>
+                        <p>For the box structure, the base took around 12.3 hours to print. I failed twice during the process. As it is a long print and I wanted to actually sleep at night, I paused the print thinking I could safely resume it in the morning. Sadly the printer failed me and refused to let me continue...and I had to start over again.</p>
+                        <p>The lid took another 6-7 hours to print, it came out alright but sadly it did not fit my box structure well.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/lid.JPG" alt="..." /></a>
+                        <p>Printing all of the chess pieces was a lot more struggling that I had thought. I thought I could just print them all at once, but my first batch of 8 pawns came out like this...slaughtered and headless... :(</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/failed-together.jpg" alt="..." /></a>
+                        <p>As I have limited special filament (purchased from Proto-pasta), I decided to print each piece one by one to prevent wasting materials on failed attempts. Each pawn took around 30 minutes to print (dynamic quality with 100% infill), and other pieces took around 40-50 minutes each. So printing all of the 32 chess pieces took me around 20 hours, not including the time waiting for the 3D printer to heat up, cleaning up the bed, leveling the bed, replacing filament, trouble-shooting, and all of the wasted time on my tragic failed prints.</p>
+                        <a href="#!"><img class="img-fluid" src="" alt="my failed prints" /></a>
+                        <p>One of my thanksgiving purchases was this 3D printer enclosure to reduce the noise, improve print stability, and to isolate accidental fire.</p>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/enclosure.jpg" alt="..." /></a>
+                        <p>But there were still lots of issues throughout the entire 3D printing process. A few lessons learnt and some mysteries:</p>
+                        <li>"Babystep Z" function is helpful when the bed is leveled but the height is slightly off</li>
+                        <li>Pay attention to the required temperature of different filament and tune the nozzle accordingly</li>
+                        <li>"Pause print" sometimes work but sometimes not. I don't think I'll ever want to pause a print again...breaking down a large print into multiple parts and glue/attach them together later may bring me less disappointment when the print failed.</li>
+                        <li>Wipe the bed with alcohol to clean it and to ensure good adhesion, especially when using glue to help with adhesion</li>
+                        <li>Even if it prints alright at the beginning, it could still fail halfway through. regardless of the model. (I haven't figured out why)</li>
+                        <li>Lift the wire to prevent it from being tangled with the machine before every print, as shown below</li>
+                        <a href="#!"><img class="img-fluid" src="assets/a8/tangled.jpg" alt="..." /></a>
+                        <li>THE BLUE SCREEN OF DEATH - the 3D printer finally died on me...</li>
+
+                        <h2 class="section-heading">Putting them all together...almost</h2>
+                        <p></p>
+
+                        <h2 class="section-heading">Attachment</h2>
+                        <p>The model files can be found <a href="https://github.com/xeniaeo/hcde-533-fall-22/blob/main/dist/assets/a8/model-file">here</a>.</p>
+
+                        <h2 class="section-heading">Sources</h2>
+                        <p>Here are the online resources & assets I used in this project:</p>
+
+                        <h2 class="section-heading">Acknowledgement</h2>
+                        <p>Big thanks for Tsai-Feng for allowing me ample time to work on the 3D printer as we need to share one printer together, as well as the emotional support when the printer failed me again and again...</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/xenia_lin">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/xeniaeo">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Xenia Lin 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
